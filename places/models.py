@@ -18,7 +18,7 @@ class Excursion(models.Model):
 
 class Image(models.Model):
     excursion = models.ForeignKey(Excursion, on_delete=models.CASCADE, verbose_name='название')
-    photo = models.ImageField(blank=True, upload_to='media', verbose_name='картинка')
+    photo = models.ImageField(blank=True, upload_to='images', verbose_name='картинка')
     number = models.PositiveIntegerField('Номер', default=0, blank=False, null=False)
 
     def __str__(self):
