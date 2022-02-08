@@ -59,9 +59,13 @@
 
         <img v-if="mainPhotoSrc" v-bind:src="mainPhotoSrc" class="d-block shadow mb-3 rounded" v-bind:alt="selectedPlace.title">
 
-        <h5 class="mb-3">{{ selectedPlace.title }}</h5>
+        {% verbatim %}
+          <h5 class="mb-3">{{ selectedPlace.title }}</h5>
+        {% endverbatim %}
 
-        <p>{{ selectedPlace.short_description }}</p>
+        {% verbatim %}
+          <p>{{ selectedPlace.short_description }}</p>
+        {% endverbatim %}
 
         <div id="place-photos" class="carousel slide mb-3 shadow" data-ride="carousel" data-interval="5000">
           <ol class="carousel-indicators">
@@ -88,7 +92,9 @@
           </template>
         </div>
 
-        <div v-html="selectedPlace.long_description"></div>
+        {% verbatim %}
+          <div v-html="selectedPlace.long_description"></div>
+        {% endverbatim %}
       </div>
     </div>
   </script>

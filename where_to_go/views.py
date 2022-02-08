@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from places.models import Excursion
+from django.urls import reverse
+
 
 def index(request):
     places = Excursion.objects.all()
@@ -18,7 +20,7 @@ def index(request):
           "properties": {
             "title": place.title,
             "placeId": place.id,
-            "detailsUrl": "./static/places/moscow_legends.json"
+            "detailsUrl": reverse('places:place_details', args=[place.id,]),
           }
         }
       excursions["features"].append(feature)
