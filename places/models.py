@@ -14,6 +14,7 @@ class Excursion(models.Model):
     class Meta:
         verbose_name = 'Экскурсия'
         verbose_name_plural = 'Экскурсии'
+        ordering = ['title']
 
 
 class Image(models.Model):
@@ -27,4 +28,5 @@ class Image(models.Model):
     class Meta:
         verbose_name = 'Картинка'
         verbose_name_plural = 'Картинки'
+        ordering = ['number']
 
