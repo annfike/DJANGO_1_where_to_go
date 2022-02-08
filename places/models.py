@@ -1,10 +1,11 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 
 class Excursion(models.Model):
     title = models.CharField('Название экскурсии', max_length=50)
     description_short = models.CharField('Краткое описание', max_length=256, blank=True, default='')
-    description_long = models.CharField('Подробное описание', max_length=256, blank=True, default='')
+    description_long = HTMLField('Подробное описание', blank=True, default='')
     lat = models.FloatField(default=55, verbose_name='долгота')
     lon = models.FloatField(default=55, verbose_name='широта')
 
