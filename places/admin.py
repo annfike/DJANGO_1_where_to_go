@@ -13,6 +13,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
 @admin.register(Excursion)
 class ExcursionAdmin(admin.ModelAdmin):
+    search_fields = ('title',)
     inlines = (ImageInline,)
 
 
