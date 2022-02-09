@@ -2,9 +2,9 @@
 
 Сайт о самых интересных местах в Москве. Авторский проект Артёма.
 
-![Иллюстрация к проекту](.gitbook/assets/site.png)
+![Иллюстрация к проекту](https://github.com/annfike/DJANGO_1_where_to_go/blob/main/site.png)
 
-[Демка сайта](https://devmanorg.github.io/where-to-go-frontend/).
+[Демка сайта](https://annfike.pythonanywhere.com/).
 
  
 
