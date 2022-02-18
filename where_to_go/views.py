@@ -4,29 +4,29 @@ from django.urls import reverse
 
 
 def index(request):
-    places = Excursion.objects.all()
-    excursions  = {
+    excursions = Excursion.objects.all()
+    serialized_excursions  = {
       "type": "FeatureCollection",
       "features": []
     }
 
-    for place in places:
+    for excursion in excursions:
       feature = {
           "type": "Feature",
           "geometry": {
             "type": "Point",
-            "coordinates": [place.lat, place.lon]
+            "coordinates": [excursion.lat, excursion.lon]
           },
           "properties": {
-            "title": place.title,
-            "placeId": place.id,
-            "detailsUrl": reverse('places:place_details', args=[place.id,]),
+            "title": excursion.title,
+            "placeId": excursion.id,
+            "detailsUrl": reverse('places:place_details', args=[excursion.id,]),
           }
         }
-      excursions["features"].append(feature)
+      serialized_excursions["features"].append(feature)
 
     context = {
-        'excursions': excursions
+        'excursions': serialized_excursions
     }
 
     return render(request, 'index.html', context)

@@ -38,21 +38,21 @@ def load_json(dir):
             lat = file.get('coordinates')['lat']
 
             
-            place, created = Excursion.objects.update_or_create(
+            excursion, created = Excursion.objects.update_or_create(
                   title = title,
                   description_short = description_short,
                   description_long = description_long,
                   lon = lat,
                   lat = lng
                   )
-            place.save()
+            excursion.save()
 
             imgs = file.get('imgs')
             for number, img in enumerate(imgs, 1):
                   r = requests.get(img)
                   i = BytesIO(r.content)
-                  image, created = place.photos.get_or_create(
-                  excursion=place.id, number=number
+                  image, created = excursion.photos.get_or_create(
+                  excursion=excursion.id, number=number
                   )
                   img_name = os.path.basename(img)
                   image.photo.save(img_name, i, save=True)
