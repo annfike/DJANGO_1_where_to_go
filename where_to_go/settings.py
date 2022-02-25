@@ -31,8 +31,7 @@ SECRET_KEY = env.str('SECRET_KEY', 'empty')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', False)
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', ['.localhost', '127.0.0.1', '[::1]'])
 
 
 # Application definition
@@ -127,8 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-if not DEBUG: 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -143,4 +141,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
-

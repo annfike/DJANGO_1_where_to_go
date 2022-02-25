@@ -10,7 +10,7 @@ class Excursion(models.Model):
     lon = models.FloatField(verbose_name='широта')
 
     def __str__(self):
-        return f'{self.title}'
+        return self.title
 
     class Meta:
         verbose_name = 'Экскурсия'
@@ -19,7 +19,7 @@ class Excursion(models.Model):
 
 
 class Image(models.Model):
-    excursion = models.ForeignKey(Excursion, on_delete=models.CASCADE, verbose_name='название', related_name='photos',)
+    excursion = models.ForeignKey(Excursion, on_delete=models.CASCADE, verbose_name='название', related_name='images',)
     photo = models.ImageField(upload_to='images', verbose_name='картинка')
     number = models.PositiveIntegerField('Номер', default=0, blank=True)
 
@@ -30,4 +30,3 @@ class Image(models.Model):
         verbose_name = 'Картинка'
         verbose_name_plural = 'Картинки'
         ordering = ['number']
-
