@@ -67,7 +67,7 @@ python manage.py load_json
 ```
 Если название вашей папки с файлами другое, используйте аргументы:
 ```
-python manage.py load_json --dir название папки
+python manage.py load_json --dir путь до вашей папки
 ```
 
  
